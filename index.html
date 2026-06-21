@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه خلاق | Creative Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">فروشگاه خلاق</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">صفحه اصلی</a></li>
+                <li><a href="#services" class="nav-link">خدمات</a></li>
+                <li><a href="#portfolio" class="nav-link">نمونه‌کارها</a></li>
+                <li><a href="#shop" class="nav-link">فروشگاه</a></li>
+                <li><a href="#about" class="nav-link">درباره ما</a></li>
+                <li><a href="#testimonials" class="nav-link">نظرات</a></li>
+                <li><a href="#contact" class="nav-link">تماس</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="admin.html" class="btn-admin">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    پنل مدیریت
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="منو">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">فروشگاه خلاق</span>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-link">صفحه اصلی</a></li>
+            <li><a href="#services" class="mobile-link">خدمات</a></li>
+            <li><a href="#portfolio" class="mobile-link">نمونه‌کارها</a></li>
+            <li><a href="#shop" class="mobile-link">فروشگاه</a></li>
+            <li><a href="#about" class="mobile-link">درباره ما</a></li>
+            <li><a href="#testimonials" class="mobile-link">نظرات مشتریان</a></li>
+            <li><a href="#contact" class="mobile-link">تماس با ما</a></li>
+            <li><a href="admin.html" class="mobile-link admin-link">🔐 پنل مدیریت</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-video-bg">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&h=1080&fit=crop">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>طراحی خلاقانه</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">آینده</span>
+                <span class="title-line highlight">دیجیتال</span>
+            </h1>
+            <p class="hero-description">ما آینده دیجیتال را می‌سازیم</p>
+            <p class="hero-tagline">طراحی خلاقانه، توسعه هوشمند، تجربه‌ای فراموش‌نشدنی</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">
+                    <span>مشاهده خدمات</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#portfolio" class="btn-secondary">
+                    <span>نمونه‌کارها</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>اسکرول کنید</span>
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-gsap="fade-up">
+                <span class="section-tag">خدمات ما</span>
+                <h2>راهکارهای جامع دیجیتال</h2>
+                <p>برای رشد کسب‌وکار شما</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-gsap="fade-up" data-delay="0.1">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                                <circle cx="7" cy="6" r="1" fill="currentColor"/>
+                                <circle cx="11" cy="6" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>طراحی UI/UX</h3>
+                    <p>طراحی رابط کاربری و تجربه کاربری با تمرکز بر سادگی و زیبایی. رابط‌هایی که کاربران عاشقشان می‌شوند.</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-card" data-gsap="fade-up" data-delay="0.2">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>توسعه وب</h3>
+                    <p>ساخت وب‌سایت‌های مدرن با آخرین فناوری‌ها. از React تا Next.js، سایت‌هایی با سرعت نور.</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-card" data-gsap="fade-up" data-delay="0.3">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>برندینگ</h3>
+                    <p>ساخت هویت بصری قوی و ماندگار برای برند شما. از لوگو تا استراتژی برند، همه‌چیز کامل.</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header" data-gsap="fade-up">
+                <span class="section-tag">نمونه‌کارها</span>
+                <h2>آثار برجسته ما</h2>
+                <p>پروژه‌هایی که افتخار می‌کنیم</p>
+            </div>
+        </div>
+        <div class="portfolio-scroll-container">
+            <div class="portfolio-track" id="portfolioTrack">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=500&fit=crop" alt="طراحی برندینگ">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-tag">طراحی</span>
+                                <h3>طراحی برندینگ</h3>
+                                <p>هویت بصری برای کسب‌وکارهای نوپا</p>
+                                <button class="btn-view">مشاهده پروژه</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="توسعه وب">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-tag">توسعه</span>
+                                <h3>توسعه وب</h3>
+                                <p>وب‌سایت‌های مدرن و واکنش‌گرا</p>
+                                <button class="btn-view">مشاهده پروژه</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-9bc0b252726f?w=800&h=500&fit=crop" alt="طراحی گرافیکی">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-tag">طراحی</span>
+                                <h3>طراحی گرافیکی</h3>
+                                <p>خلق آثار هنری دیجیتال</p>
+                                <button class="btn-view">مشاهده پروژه</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop" alt="راهکارهای نوآوری">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-tag">فناوری</span>
+                                <h3>راهکارهای نوآوری</h3>
+                                <p>فناوری‌های پیشرو برای آینده</p>
+                                <button class="btn-view">مشاهده پروژه</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-nav">
+            <button class="portfolio-arrow prev" id="portfolioPrev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <div class="portfolio-dots" id="portfolioDots"></div>
+            <button class="portfolio-arrow next" id="portfolioNext">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="shop">
+        <div class="container">
+            <div class="section-header" data-gsap="fade-up">
+                <span class="section-tag">فروشگاه</span>
+                <h2>محصولات ما</h2>
+                <p>خدمات متنوع با کیفیت تضمینی</p>
+            </div>
+            <div class="shop-filters" data-gsap="fade-up">
+                <button class="filter-btn active" data-filter="all">همه</button>
+                <button class="filter-btn" data-filter="design">طراحی</button>
+                <button class="filter-btn" data-filter="development">توسعه</button>
+                <button class="filter-btn" data-filter="branding">برندینگ</button>
+                <button class="filter-btn" data-filter="marketing">مارکتینگ</button>
+            </div>
+            <div class="bento-grid" id="bentoGrid">
+                <div class="bento-item large" data-category="design" data-gsap="fade-up">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=400&fit=crop" alt="طراحی لوگو">
+                        <div class="bento-3d" id="bento3d-1">
+                            <div class="cube">
+                                <div class="face front">لوگو</div>
+                                <div class="face back">Logo</div>
+                                <div class="face right">Design</div>
+                                <div class="face left">طراحی</div>
+                                <div class="face top">✦</div>
+                                <div class="face bottom">✦</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">طراحی</span>
+                        <h3>طراحی لوگو</h3>
+                        <p class="bento-desc">قیمت مناسب، تحویل سریع</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۲٬۵۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="طراحی لوگو" data-price="2500000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="development" data-gsap="fade-up" data-delay="0.1">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=300&fit=crop" alt="طراحی وب‌سایت">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">توسعه</span>
+                        <h3>طراحی وب‌سایت</h3>
+                        <p class="bento-desc">واکنش‌گرا، مدرن</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۱۲٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="طراحی وب‌سایت" data-price="12000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="design" data-gsap="fade-up" data-delay="0.15">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" alt="طراحی گرافیکی">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">طراحی</span>
+                        <h3>طراحی گرافیکی</h3>
+                        <p class="bento-desc">خلاقانه، منحصربه‌فرد</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۳٬۵۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="طراحی گرافیکی" data-price="3500000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="branding" data-gsap="fade-up" data-delay="0.2">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop" alt="هویت بصری">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">برندینگ</span>
+                        <h3>هویت بصری برند</h3>
+                        <p class="bento-desc">کامل و حرفه‌ای</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۸٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="هویت بصری برند" data-price="8000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="marketing" data-gsap="fade-up" data-delay="0.25">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=400&h=300&fit=crop" alt="دیجیتال مارکتینگ">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">مارکتینگ</span>
+                        <h3>دیجیتال مارکتینگ</h3>
+                        <p class="bento-desc">استراتژی محتوا</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۵٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="دیجیتال مارکتینگ" data-price="5000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item wide" data-category="development" data-gsap="fade-up" data-delay="0.3">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=300&fit=crop" alt="اپلیکیشن موبایل">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">توسعه</span>
+                        <h3>اپلیکیشن موبایل</h3>
+                        <p class="bento-desc">iOS و Android</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۱۵٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="اپلیکیشن موبایل" data-price="15000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="design" data-gsap="fade-up" data-delay="0.35">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop" alt="موشن گرافیک">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">طراحی</span>
+                        <h3>موشن گرافیک</h3>
+                        <p class="bento-desc">انیمیشن حرفه‌ای</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۴٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="موشن گرافیک" data-price="4000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-item" data-category="branding" data-gsap="fade-up" data-delay="0.4">
+                    <div class="bento-image">
+                        <img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=400&h=300&fit=crop" alt="بسته برندینگ">
+                    </div>
+                    <div class="bento-info">
+                        <span class="bento-badge">برندینگ</span>
+                        <h3>بسته برندینگ کامل</h3>
+                        <p class="bento-desc">همه‌چیز در یک جا</p>
+                        <div class="bento-footer">
+                            <p class="bento-price">۲۰٬۰۰۰٬۰۰۰ <span>تومان</span></p>
+                            <button class="btn-add-cart" data-product="بسته برندینگ کامل" data-price="20000000">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM20 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-parallax-bg">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=800&fit=crop" alt="تیم ما" id="aboutParallaxImg">
+        </div>
+        <div class="about-overlay"></div>
+        <div class="container">
+            <div class="about-content" data-gsap="fade-up">
+                <span class="section-tag">درباره ما</span>
+                <h2>تیم خلاق ما</h2>
+                <p>ما تیمی از طراحان و توسعه‌دهندگان پرشور هستیم که با عشق به خلق تجربه‌های دیجیتال منحصربه‌فرد، هر پروژه را به یک اثر هنری تبدیل می‌کنیم.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="150">0</span>
+                        <span class="stat-label">پروژه موفق</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">مشتری راضی</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">سال تجربه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header" data-gsap="fade-up">
+                <span class="section-tag">نظرات مشتریان</span>
+                <h2>مشتریان ما چه می‌گویند</h2>
+            </div>
+            <div class="testimonials-carousel" id="testimonialsCarousel">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"تیم فروشگاه خلاق واقعاً حرفه‌ای کار می‌کنند. طراحی سایت ما عالی شد و فروشمون دو برابر شد!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="علی محمدی">
+                            <div>
+                                <h4>علی محمدی</h4>
+                                <span>مدیرعامل فناوری نوین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"برندینگی که برامون طراحی کردن فوق‌العاده بود. هویت بصری ما کاملاً تغییر کرد."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" alt="سارا کریمی">
+                            <div>
+                                <h4>سارا کریمی</h4>
+                                <span>مدیر مارکتینگ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"سرعت و کیفیت کارشون واقعاً تحسین‌برانگیزه. هر پروژه‌ای بدم دستشون مطمئنم عالی میشه."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="رضا احمدی">
+                            <div>
+                                <h4>رضا احمدی</h4>
+                                <span>توسعه‌دهنده ارشد</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"اپلیکیشنی که ساختن خیلی کاربرپسند و زیباست. تعداد دانلودها از روز اول رشد چشمگیری داشت."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="مریم رضایی">
+                            <div>
+                                <h4>مریم رضایی</h4>
+                                <span>مدیر محصول</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-nav">
+                    <button class="testimonial-arrow prev" id="testimonialPrev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
+                    <button class="testimonial-arrow next" id="testimonialNext">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-side" data-gsap="fade-right">
+                    <span class="section-tag">تماس با ما</span>
+                    <h2>با ما در ارتباط باشید</h2>
+                    <p>برای هرگونه سوال یا همکاری با ما در تماس باشید. تیم ما آماده پاسخگویی به شماست.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>آدرس</h4>
+                                <p>تهران، خیابان ولیعصر، برج میلاد</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <path d="M22 6l-10 7L2 6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>ایمیل</h4>
+                                <p>info@creativeshop.ir</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="detail-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>تلفن</h4>
+                                <p>۰۲۱-۸۸۷۷۶۶۵۵</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-side" data-gsap="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">نام شما</label>
+                                <input type="text" id="name" placeholder="نام کامل" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">ایمیل</label>
+                                <input type="email" id="email" placeholder="example@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">موضوع</label>
+                            <input type="text" id="subject" placeholder="موضوع پیام" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">پیام شما</label>
+                            <textarea id="message" rows="5" placeholder="پیام خود را بنویسید..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span>ارسال پیام</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">فروشگاه خلاق</span>
+                    </a>
+                    <p>طراحی خلاقانه، توسعه هوشمند، تجربه‌ای فراموش‌نشدنی. ما آینده دیجیتال شما را می‌سازیم.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="اینستاگرام">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                                <circle cx="12" cy="12" r="5"/>
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="تلگرام">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="لینکدین">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="توییتر">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>لینک‌های سریع</h4>
+                    <ul>
+                        <li><a href="#home">صفحه اصلی</a></li>
+                        <li><a href="#services">خدمات</a></li>
+                        <li><a href="#portfolio">نمونه‌کارها</a></li>
+                        <li><a href="#shop">فروشگاه</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>خدمات</h4>
+                    <ul>
+                        <li><a href="#">طراحی UI/UX</a></li>
+                        <li><a href="#">توسعه وب</a></li>
+                        <li><a href="#">برندینگ</a></li>
+                        <li><a href="#">دیجیتال مارکتینگ</a></li>
+                        <li><a href="#">اپلیکیشن موبایل</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>خبرنامه</h4>
+                    <p>جدیدترین اخبار و تخفیف‌ها را در ایمیل خود دریافت کنید.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="ایمیل شما" required>
+                        <button type="submit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© ۲۰۲۵ فروشگاه خلاق. تمامی حقوق محفوظ است.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">حریم خصوصی</a>
+                    <a href="#">شرایط استفاده</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+        <div class="cart-notification-icon">✓</div>
+        <div class="cart-notification-text">
+            <h4>به سبد خرید اضافه شد!</h4>
+            <p id="cartNotificationProduct"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

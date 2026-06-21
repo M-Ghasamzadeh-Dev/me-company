@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت | فروشگاه خلاق</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-page" id="loginPage">
+        <div class="login-bg">
+            <div class="login-particles" id="loginParticles"></div>
+        </div>
+        <div class="login-card">
+            <div class="login-logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">پنل مدیریت</span>
+            </div>
+            <h2>ورود به پنل</h2>
+            <p>لطفاً اطلاعات کاربری خود را وارد کنید</p>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">نام کاربری</label>
+                    <div class="input-wrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <input type="text" id="username" placeholder="admin" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">رمز عبور</label>
+                    <div class="input-wrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="password" placeholder="admin123" required>
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="eyeIcon">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-wrap">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        <span>مرا به خاطر بسپار</span>
+                    </label>
+                    <a href="#" class="forgot-link">فراموشی رمز؟</a>
+                </div>
+                <button type="submit" class="btn-login" id="btnLogin">
+                    <span>ورود به پنل</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="login-error" id="loginError">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <span>نام کاربری یا رمز عبور اشتباه است!</span>
+            </div>
+            <div class="login-hint">
+                <p>نام کاربری: <strong>admin</strong></p>
+                <p>رمز عبور: <strong>admin123</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <span class="logo-icon">✦</span>
+                    <span class="logo-text">فروشگاه خلاق</span>
+                </a>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-page="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>داشبورد</span>
+                </a>
+                <a href="#" class="sidebar-link" data-page="products">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span>محصولات</span>
+                    <span class="sidebar-badge" id="productCount">8</span>
+                </a>
+                <a href="#" class="sidebar-link" data-page="orders">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>سفارشات</span>
+                    <span class="sidebar-badge" id="orderCount">12</span>
+                </a>
+                <a href="#" class="sidebar-link" data-page="users">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>کاربران</span>
+                </a>
+                <a href="#" class="sidebar-link" data-page="analytics">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                    <span>آمار</span>
+                </a>
+                <a href="#" class="sidebar-link" data-page="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    <span>تنظیمات</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="admin-info">
+                    <div class="admin-avatar">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="admin-details">
+                        <span class="admin-name">مدیر سیستم</span>
+                        <span class="admin-role">Admin</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="btnLogout">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span>خروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+                <div class="top-bar-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <input type="text" placeholder="جستجو..." id="globalSearch">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="top-bar-btn" id="notificationBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="top-bar-profile">
+                        <span>مدیر</span>
+                        <div class="profile-avatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Page -->
+            <div class="page-content active" id="page-dashboard">
+                <div class="page-header">
+                    <h1>داشبورد</h1>
+                    <p>نمای کلی از وضعیت فروشگاه</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <path d="M16 10a4 4 0 0 1-8 0"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statProducts">8</span>
+                            <span class="stat-label">محصولات</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                            <span>+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statOrders">12</span>
+                            <span class="stat-label">سفارشات</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                            <span>+8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statRevenue">۵۶٬۵۰۰٬۰۰۰</span>
+                            <span class="stat-label">درآمد (تومان)</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                            <span>+24%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statUsers">45</span>
+                            <span class="stat-label">کاربران</span>
+                        </div>
+                        <div class="stat-trend up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                            <span>+5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>آخرین سفارشات</h3>
+                            <a href="#" class="card-link" data-page="orders">مشاهده همه</a>
+                        </div>
+                        <div class="orders-list" id="recentOrders">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>محصولات پرفروش</h3>
+                            <a href="#" class="card-link" data-page="products">مشاهده همه</a>
+                        </div>
+                        <div class="top-products" id="topProducts">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Page -->
+            <div class="page-content" id="page-products">
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1>مدیریت محصولات</h1>
+                        <p>افزودن، ویرایش و حذف محصولات</p>
+                    </div>
+                    <button class="btn-add" id="btnAddProduct">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>افزودن محصول</span>
+                    </button>
+                </div>
+                <div class="products-toolbar">
+                    <div class="search-box">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        <input type="text" placeholder="جستجوی محصول..." id="productSearch">
+                    </div>
+                    <div class="filter-group">
+                        <select id="categoryFilter">
+                            <option value="all">همه دسته‌ها</option>
+                            <option value="design">طراحی</option>
+                            <option value="development">توسعه</option>
+                            <option value="branding">برندینگ</option>
+                            <option value="marketing">مارکتینگ</option>
+                        </select>
+                        <select id="sortFilter">
+                            <option value="newest">جدیدترین</option>
+                            <option value="price-asc">قیمت: کم به زیاد</option>
+                            <option value="price-desc">قیمت: زیاد به کم</option>
+                            <option value="name">نام</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-table-wrap">
+                    <table class="products-table" id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>محصول</th>
+                                <th>دسته‌بندی</th>
+                                <th>قیمت</th>
+                                <th>وضعیت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Filled by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+
+            <!-- Other Pages Placeholder -->
+            <div class="page-content" id="page-orders">
+                <div class="page-header">
+                    <h1>سفارشات</h1>
+                    <p>مدیریت سفارشات مشتریان</p>
+                </div>
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">📦</div>
+                    <h3>بخش سفارشات</h3>
+                    <p>این بخش به زودی فعال خواهد شد.</p>
+                </div>
+            </div>
+            <div class="page-content" id="page-users">
+                <div class="page-header">
+                    <h1>کاربران</h1>
+                    <p>مدیریت کاربران سیستم</p>
+                </div>
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">👥</div>
+                    <h3>بخش کاربران</h3>
+                    <p>این بخش به زودی فعال خواهد شد.</p>
+                </div>
+            </div>
+            <div class="page-content" id="page-analytics">
+                <div class="page-header">
+                    <h1>آمار و گزارشات</h1>
+                    <p>تحلیل عملکرد فروشگاه</p>
+                </div>
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">📊</div>
+                    <h3>بخش آمار</h3>
+                    <p>این بخش به زودی فعال خواهد شد.</p>
+                </div>
+            </div>
+            <div class="page-content" id="page-settings">
+                <div class="page-header">
+                    <h1>تنظیمات</h1>
+                    <p>تنظیمات سیستم</p>
+                </div>
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">⚙️</div>
+                    <h3>بخش تنظیمات</h3>
+                    <p>این بخش به زودی فعال خواهد شد.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">افزودن محصول جدید</h3>
+                <button class="modal-close" id="modalClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <form class="modal-form" id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">نام محصول *</label>
+                        <input type="text" id="productName" placeholder="نام محصول" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">دسته‌بندی *</label>
+                        <select id="productCategory" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="design">طراحی</option>
+                            <option value="development">توسعه</option>
+                            <option value="branding">برندینگ</option>
+                            <option value="marketing">مارکتینگ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice">قیمت (تومان) *</label>
+                        <input type="number" id="productPrice" placeholder="مثلاً 2500000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStatus">وضعیت</label>
+                        <select id="productStatus">
+                            <option value="active">فعال</option>
+                            <option value="inactive">غیرفعال</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productDesc">توضیحات</label>
+                    <textarea id="productDesc" rows="3" placeholder="توضیحات محصول..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">تصویر محصول</label>
+                    <div class="image-upload">
+                        <input type="file" id="productImage" accept="image/*">
+                        <div class="upload-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <path d="M21 15l-5-5L5 21"/>
+                            </svg>
+                            <span>تصویر را اینجا رها کنید یا کلیک کنید</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="btnCancel">انصراف</button>
+                    <button type="submit" class="btn-save" id="btnSave">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                            <polyline points="17 21 17 13 7 13 7 21"/>
+                            <polyline points="7 3 7 8 15 8"/>
+                        </svg>
+                        <span>ذخیره</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>حذف محصول</h3>
+                <button class="modal-close" id="deleteModalClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="delete-icon">🗑️</div>
+                <p>آیا از حذف این محصول مطمئن هستید؟</p>
+                <p class="delete-product-name" id="deleteProductName"></p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="btnCancelDelete">انصراف</button>
+                <button type="button" class="btn-delete" id="btnConfirmDelete">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    <span>حذف</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
